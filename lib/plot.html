@@ -143,6 +143,27 @@
             
   <div class="section" id="module-impdar.lib.plot">
 <span id="plot"></span><h1>plot<a class="headerlink" href="#module-impdar.lib.plot" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="impdar.lib.plot.plot">
+<code class="descclassname">impdar.lib.plot.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>fn</em>, <em>tr=None</em>, <em>gssi=False</em>, <em>pe=False</em>, <em>s=False</em>, <em>ftype='png'</em>, <em>dpi=300</em>, <em>xd=False</em>, <em>yd=False</em>, <em>x_range=(0</em>, <em>-1)</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.plot.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>We have an overarching function here to handle a number of plot types</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fn</strong> (<em>list of strs</em>) &#8211; A list of filenames to plot individually.</li>
+<li><strong>tr</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Plot traces tr[1] to tr[2] (or trace tr) rather than the radargram. Default is None (plot radargram)</li>
+<li><strong>gssi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; If True, fns are .DZT files</li>
+<li><strong>pe</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; If True, fns are Pulse Ekko files</li>
+<li><strong>x_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em>, </em><em>optional</em>) &#8211; The range of traces to plot in the radargram. Default is (0, -1) (plot all traces)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

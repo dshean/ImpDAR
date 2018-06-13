@@ -144,6 +144,109 @@
   <div class="section" id="module-impdar.lib.RadarData">
 <span id="radardata"></span><h1>RadarData<a class="headerlink" href="#module-impdar.lib.RadarData" title="Permalink to this headline">¶</a></h1>
 <p>Define a class that just has the necessary attributes for a stodeep file&#8211;this should be subclassed per filetype</p>
+<dl class="class">
+<dt id="impdar.lib.RadarData.RadarData">
+<em class="property">class </em><code class="descclassname">impdar.lib.RadarData.</code><code class="descname">RadarData</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that holds the relevant information for a radar profile.</p>
+<p>We keep track of processing steps with the flags attribute. This thing gets subclassed per input filetype to override the init method, do any necessary initial processing, etc. This version&#8217;s __init__ takes a filename of a .mat file in the old StODeep format to load.</p>
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarData.data">
+<code class="descname">data</code><a class="headerlink" href="#impdar.lib.RadarData.RadarData.data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>numpy.ndarray</em> &#8211; The data matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.hfilt">
+<code class="descname">hfilt</code><span class="sig-paren">(</span><em>ftype='hfilt'</em>, <em>bounds=None</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.hfilt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontally filter the data.</p>
+<p>This is a wrapper around other filter types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ftype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; The filter type. Options are &#8216;hfilt&#8217; and &#8216;adaptive&#8217;. Default hfilt</li>
+<li><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em>, </em><em>optional</em>) &#8211; Bounds for the hfilt. Default is None, but required for hfilt.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.nmo">
+<code class="descname">nmo</code><span class="sig-paren">(</span><em>ant_sep</em>, <em>uice=169000000.0</em>, <em>uair=300000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.nmo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal move-out correction.</p>
+<p>Converts travel time to distance accounting for antenna separation. This potentially affects data and snum. It also defines nmo_depth, the moveout-corrected depth</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ant_sep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Antenna separation in meters.</li>
+<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in ice, in m/s. (different from StoDeep!!). Default 1.69e8</li>
+<li><strong>uar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in air. Default 3.0e8</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse radar data</p>
+<p>The St Olaf version of this function had a bunch of options. They seemed irrelevant to me. We just try to flip everything that might need flipping.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the radar data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) &#8211; Filename. Should have a .mat extension</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.vertical_band_pass">
+<code class="descname">vertical_band_pass</code><span class="sig-paren">(</span><em>low</em>, <em>high</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.vertical_band_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertically bandpass the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>low</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Lowest frequency passed, in MHz</li>
+<li><strong>high</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Highest frequency passed, in MHz</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="impdar.lib.RadarData.RadarFlags">
+<em class="property">class </em><code class="descclassname">impdar.lib.RadarData.</code><code class="descname">RadarFlags</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags that indicate the processing that has been used on the data.</p>
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.batch">
+<code class="descname">batch</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.batch" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
