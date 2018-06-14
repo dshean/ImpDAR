@@ -194,8 +194,9 @@
 <div class="section" id="proc">
 <h3>proc<a class="headerlink" href="#proc" title="Permalink to this headline">¶</a></h3>
 <p>Process data</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impdar</span><span class="o">.</span><span class="n">py</span> <span class="n">proc</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">vbp</span> <span class="n">VBP</span> <span class="n">VBP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">hfilt</span> <span class="n">HFILT</span> <span class="n">HFILT</span><span class="p">]</span>
-               <span class="p">[</span><span class="o">-</span><span class="n">ahfilt</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">rev</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nmo</span> <span class="n">NMO</span> <span class="n">NMO</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">crop</span> <span class="n">CROP</span> <span class="n">CROP</span> <span class="n">CROP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impdar</span><span class="o">.</span><span class="n">py</span> <span class="n">proc</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">cat</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">vbp</span> <span class="n">VBP</span> <span class="n">VBP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">hfilt</span> <span class="n">HFILT</span> <span class="n">HFILT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">-</span><span class="n">ahfilt</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">rev</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nmo</span> <span class="n">NMO</span> <span class="n">NMO</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">crop</span> <span class="n">CROP</span> <span class="n">CROP</span> <span class="n">CROP</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">-</span><span class="n">restack</span> <span class="n">RESTACK</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span>
                <span class="n">fn</span> <span class="p">[</span><span class="n">fn</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -228,6 +229,11 @@
 <p class="last">Default: False</p>
 </td></tr>
 <tr><td class="option-group">
+<kbd>-cat</kbd></td>
+<td><p class="first">Concatenate the files</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
 <kbd>-vbp</kbd></td>
 <td>Bandpass the data vertically at low (MHz) and high (MHz)</td></tr>
 <tr><td class="option-group">
@@ -250,6 +256,9 @@
 <kbd>-crop</kbd></td>
 <td>Crop the radar data in the travel-time direction. Arguments are to crop off [&#8220;top&#8221;, &#8220;bottom&#8221;], with limit defined in terms of [&#8220;snum&#8221;, &#8220;twtt&#8221;, &#8220;depth&#8221;] and then the limit itself</td></tr>
 <tr><td class="option-group">
+<kbd>-restack</kbd></td>
+<td>Restack to this (odd) number of traces</td></tr>
+<tr><td class="option-group">
 <kbd>-o</kbd></td>
 <td>Write to this filename</td></tr>
 </tbody>
@@ -259,7 +268,7 @@
 <div class="section" id="plot">
 <h3>plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h3>
 <p>Plot data</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impdar</span><span class="o">.</span><span class="n">py</span> <span class="n">plot</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">yd</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="n">fn</span> <span class="p">[</span><span class="n">fn</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impdar</span><span class="o">.</span><span class="n">py</span> <span class="n">plot</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">yd</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">xd</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="n">fn</span> <span class="p">[</span><span class="n">fn</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat2">
@@ -288,6 +297,11 @@
 <tr><td class="option-group">
 <kbd>-yd</kbd></td>
 <td><p class="first">Plot the depth rather than travel time</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>-xd</kbd></td>
+<td><p class="first">Plot the distance rather than the trace number</p>
 <p class="last">Default: False</p>
 </td></tr>
 <tr><td class="option-group">

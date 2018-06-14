@@ -145,8 +145,22 @@
 <span id="process"></span><h1>process<a class="headerlink" href="#module-impdar.lib.process" title="Permalink to this headline">¶</a></h1>
 <p>This is the overarching function that collects information about the processing steps we want to perform</p>
 <dl class="function">
+<dt id="impdar.lib.process.concat">
+<code class="descclassname">impdar.lib.process.</code><code class="descname">concat</code><span class="sig-paren">(</span><em>radar_data</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.process.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate all radar data input</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fns</strong> (<em>list of strs</em>) &#8211; files to concatenate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="impdar.lib.process.process">
-<code class="descclassname">impdar.lib.process.</code><code class="descname">process</code><span class="sig-paren">(</span><em>RadarDataList</em>, <em>rev=False</em>, <em>vbp=None</em>, <em>hfilt=None</em>, <em>ahfilt=False</em>, <em>nmo=None</em>, <em>crop=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.process.process" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">impdar.lib.process.</code><code class="descname">process</code><span class="sig-paren">(</span><em>RadarDataList</em>, <em>rev=False</em>, <em>vbp=None</em>, <em>hfilt=None</em>, <em>ahfilt=False</em>, <em>nmo=None</em>, <em>crop=None</em>, <em>restack=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.process.process" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform one or more processing steps on a list of RadarData objects</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -173,7 +187,7 @@
 
 <dl class="function">
 <dt id="impdar.lib.process.process_and_exit">
-<code class="descclassname">impdar.lib.process.</code><code class="descname">process_and_exit</code><span class="sig-paren">(</span><em>fn</em>, <em>rev=False</em>, <em>vbp=None</em>, <em>hfilt=None</em>, <em>ahfilt=False</em>, <em>gssi=False</em>, <em>pe=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.process.process_and_exit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">impdar.lib.process.</code><code class="descname">process_and_exit</code><span class="sig-paren">(</span><em>fn</em>, <em>cat=False</em>, <em>gssi=False</em>, <em>pe=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.process.process_and_exit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform one or more processing steps, save, and exit</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -181,12 +195,10 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fn</strong> (<em>list of strs</em>) &#8211; The filename(s) to process. Assumed to be .mat files unless gssi or pe is True.</li>
-<li><strong>rev</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Reverse the profile orientation. Default is False.</li>
-<li><strong>vbp</strong> (<em>2-tuple</em><em>, </em><em>optional</em>) &#8211; Vertical bandpass between (vbp1, vbp2) MHz. Default None (no filtering).</li>
-<li><strong>hfilt</strong> (<em>2-tuple</em><em>, </em><em>optional</em>) &#8211; Horizontal filter subtracting average trace between (hfilt1, hfilt2). Default is None (no hfilt).</li>
-<li><strong>ahfilt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Adaptively horizontally filter the data.</li>
 <li><strong>gssi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; If True, expect a gssi radar file as input rather than a .mat file.</li>
 <li><strong>pe</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; If True, expect a Pulse Ekko radar file as input rather than a .mat file.</li>
+<li><strong>cat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; If True, concatenate files before processing rather than running through each individually</li>
+<li><strong>kwargs</strong> &#8211; These are the processing arguments for <cite>process</cite></li>
 </ul>
 </td>
 </tr>

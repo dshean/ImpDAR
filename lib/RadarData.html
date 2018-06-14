@@ -156,6 +156,46 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.agc">
+<code class="descname">agc</code><span class="sig-paren">(</span><em>window=50</em>, <em>scaling_factor=50</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.agc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to do some automatic gain control</p>
+<p>This is from StoDeep&#8211;I&#8217;m not sure it is useful but it was easy to roll over so I&#8217;m going to keep it. I think you should have most of this gone with a bandpass, but whatever.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>window</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; The size of window we use in number of samples (default 50)</li>
+<li><strong>scaling_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; The scaling factor. This gets divided by the max amplitude when we rescale the input. Default 50.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.crop">
+<code class="descname">crop</code><span class="sig-paren">(</span><em>lim</em>, <em>top_or_bottom='top'</em>, <em>dimension='snum'</em>, <em>uice=169000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.crop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crop the radar data in the vertical. We can take off the top or bottom.</p>
+<p>This will affect data, travel_time, and snum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> (</em><em>int if dimension=='snum'</em><em>)</em><em></em>) &#8211; The value at which to crop.</li>
+<li><strong>top_or_bottom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Crop off the top (lim is the first remaining return) or the bottom (lim is the last remaining return).</li>
+<li><strong>dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Evaluate in terms of sample (snum), travel time (twtt), or depth (depth). If depth, uses nmo_depth if present and use uice with no transmit/receive separation.</li>
+<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in ice. Used if nmo_depth is None and dimension==&#8217;depth&#8217;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="impdar.lib.RadarData.RadarData.hfilt">
 <code class="descname">hfilt</code><span class="sig-paren">(</span><em>ftype='hfilt'</em>, <em>bounds=None</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.hfilt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Horizontally filter the data.</p>
@@ -189,6 +229,21 @@
 <li><strong>uar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in air. Default 3.0e8</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.restack">
+<code class="descname">restack</code><span class="sig-paren">(</span><em>traces</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.restack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restack all relevant data to the given number of traces.</p>
+<p>There are fancier ways to do this&#8211;if you can, you probably want to restack to constant trace spacing instead</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>traces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) &#8211; The (odd) number of traces to stack</td>
 </tr>
 </tbody>
 </table>
@@ -242,7 +297,25 @@
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.batch">
 <code class="descname">batch</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.batch" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+<dd><p><em>bool[lims[0]:lims[1]</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.bpass">
+<code class="descname">bpass</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.bpass" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>3x1 np.ndarray</em> &#8211;</p>
+<ol class="arabic simple">
+<li>1 if bandpassed; (2) Low; and (3) High (MHz) bounds</li>
+</ol>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.hfilt">
+<code class="descname">hfilt</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.hfilt" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>2x1 np.ndarray:</em> &#8211;</p>
+<ol class="arabic simple">
+<li>1 if horizontally filtered; (2) Filter type</li>
+</ol>
 </dd></dl>
 
 </dd></dl>
