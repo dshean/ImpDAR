@@ -196,7 +196,7 @@
 <p>Process data</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impdar</span><span class="o">.</span><span class="n">py</span> <span class="n">proc</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">cat</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">vbp</span> <span class="n">VBP</span> <span class="n">VBP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">hfilt</span> <span class="n">HFILT</span> <span class="n">HFILT</span><span class="p">]</span>
                <span class="p">[</span><span class="o">-</span><span class="n">ahfilt</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">rev</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nmo</span> <span class="n">NMO</span> <span class="n">NMO</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">crop</span> <span class="n">CROP</span> <span class="n">CROP</span> <span class="n">CROP</span><span class="p">]</span>
-               <span class="p">[</span><span class="o">-</span><span class="n">restack</span> <span class="n">RESTACK</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">-</span><span class="n">restack</span> <span class="n">RESTACK</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">interp</span> <span class="n">INTERP</span> <span class="n">INTERP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span>
                <span class="n">fn</span> <span class="p">[</span><span class="n">fn</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -258,6 +258,9 @@
 <tr><td class="option-group">
 <kbd>-restack</kbd></td>
 <td>Restack to this (odd) number of traces</td></tr>
+<tr><td class="option-group">
+<kbd>-interp</kbd></td>
+<td>Reinterpolate GPS. First argument is the new spacing, in meters. Second argument is the filename (csv or mat) with the new GPS data</td></tr>
 <tr><td class="option-group">
 <kbd>-o</kbd></td>
 <td>Write to this filename</td></tr>

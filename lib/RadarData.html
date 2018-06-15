@@ -175,6 +175,25 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.constant_space">
+<code class="descname">constant_space</code><span class="sig-paren">(</span><em>spacing</em>, <em>min_movement=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.constant_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restack the radar data to a constant spacing.</p>
+<p>This comprises the second half of what was done by StoDeep&#8217;s interpdeep. If you have good GPS data, you would first want to call <cite>impdar.lib.gpslib.kinematic_gps_control</cite> so that the GPS-related variables are all improved, then you would want to call this method. <cite>impdar.lib.gpslib</cite> provides some wrappings for doing both steps and for loading in the external GPS data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spacing</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Target trace spacing, in meters</li>
+<li><strong>min_movement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Minimum trace spacing. If there is not this much separation, toss the next shot. Set high to keep everything. Default 1.0e-2.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="impdar.lib.RadarData.RadarData.crop">
 <code class="descname">crop</code><span class="sig-paren">(</span><em>lim</em>, <em>top_or_bottom='top'</em>, <em>dimension='snum'</em>, <em>uice=169000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.crop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Crop the radar data in the vertical. We can take off the top or bottom.</p>
