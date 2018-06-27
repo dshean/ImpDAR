@@ -143,7 +143,7 @@
             
   <div class="section" id="module-impdar.lib.RadarData">
 <span id="radardata"></span><h1>RadarData<a class="headerlink" href="#module-impdar.lib.RadarData" title="Permalink to this headline">¶</a></h1>
-<p>Define a class that just has the necessary attributes for a stodeep file&#8211;this should be subclassed per filetype</p>
+<p>Define a class that just has the necessary attributes for a StODeep file&#8211;this should be subclassed per filetype</p>
 <dl class="class">
 <dt id="impdar.lib.RadarData.RadarData">
 <em class="property">class </em><code class="descclassname">impdar.lib.RadarData.</code><code class="descname">RadarData</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData" title="Permalink to this definition">¶</a></dt>
@@ -152,7 +152,7 @@
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarData.data">
 <code class="descname">data</code><a class="headerlink" href="#impdar.lib.RadarData.RadarData.data" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>numpy.ndarray</em> &#8211; The data matrix</p>
+<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; The data matrix.</p>
 </dd></dl>
 
 <dl class="method">
@@ -254,6 +254,20 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="impdar.lib.RadarData.RadarData.rangegain">
+<code class="descname">rangegain</code><span class="sig-paren">(</span><em>slope</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.rangegain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a range gain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slope</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; The slope of the linear range gain to be applied. Maybe try 1.0e-2?</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="impdar.lib.RadarData.RadarData.restack">
 <code class="descname">restack</code><span class="sig-paren">(</span><em>traces</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.restack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restack all relevant data to the given number of traces.</p>
@@ -313,28 +327,65 @@
 <dt id="impdar.lib.RadarData.RadarFlags">
 <em class="property">class </em><code class="descclassname">impdar.lib.RadarData.</code><code class="descname">RadarFlags</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that indicate the processing that has been used on the data.</p>
+<p>These are used for figuring out whether different processing steps have been performed. They also contain some information about the input arguments for some (but not all) of the processing steps.</p>
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.batch">
 <code class="descname">batch</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.batch" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool[lims[0]:lims[1]</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+<dd><p><em>bool</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.agc">
+<code class="descname">agc</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.agc" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> &#8211; Automatic gain control has been applied.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.reverse">
+<code class="descname">reverse</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> &#8211; Data have been reversed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.restack">
+<code class="descname">restack</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.restack" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> &#8211; Data have been restacked.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.rgain">
+<code class="descname">rgain</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.rgain" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> &#8211; Data have a linear range gain applied.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.bpass">
 <code class="descname">bpass</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.bpass" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>3x1 np.ndarray</em> &#8211;</p>
-<ol class="arabic simple">
-<li>1 if bandpassed; (2) Low; and (3) High (MHz) bounds</li>
-</ol>
+<dd><p>3x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if bandpassed; (2) Low; and (3) High (MHz) bounds</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.hfilt">
 <code class="descname">hfilt</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.hfilt" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>2x1 np.ndarray:</em> &#8211;</p>
-<ol class="arabic simple">
-<li>1 if horizontally filtered; (2) Filter type</li>
-</ol>
+<dd><p>2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if horizontally filtered; (2) Filter type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="impdar.lib.RadarData.RadarFlags.interp">
+<code class="descname">interp</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.interp" title="Permalink to this definition">¶</a></dt>
+<dd><p>2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if constant distance spacing applied (2) The constant spacing (m)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarFlags.from_matlab">
+<code class="descname">from_matlab</code><span class="sig-paren">(</span><em>matlab_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.from_matlab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate all values from an incoming .mat file (i.e. a dictionary from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal"><span class="pre">scipy.io.loadmat()</span></code></a>) with appropriate attributes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="impdar.lib.RadarData.RadarFlags.to_matlab">
+<code class="descname">to_matlab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.to_matlab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert all associated attributes into a dictionary formatted for use with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.savemat.html#scipy.io.savemat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal"><span class="pre">scipy.io.savemat()</span></code></a></p>
 </dd></dl>
 
 </dd></dl>

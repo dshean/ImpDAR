@@ -133,11 +133,16 @@
             
   <div class="section" id="welcome-to-impdar-s-documentation">
 <h1>Welcome to ImpDAR&#8217;s documentation!<a class="headerlink" href="#welcome-to-impdar-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>ImpDAR is a radar processor based on the St Olaf Deep radar processor. It allows for filtering, plotting, distance- and depth-correcting on a variety of file formats.  It does not yet have the full functionality of the original, but the most common steps are incorporated.</p>
+<div class="section" id="impdar-vs-stodeep">
+<h2>ImpDAR vs StODeep<a class="headerlink" href="#impdar-vs-stodeep" title="Permalink to this headline">¶</a></h2>
+<p>Currently, ImpDAR incorporates all major elements of StoDeep, but none of StoInterpret. On the other hand, ImpDAR works on modern Python, requires no proprietary software, and has a user interface that should be easy to use for anybody who has familiarity with the command line and/or Python. I would be thrilled to get pull requests for remaining missing functionality (particularly additional input formats).</p>
+</div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>Python 2 or 3,
-<a class="reference external" href="http://www.scipy.org">numpy</a>,
-<a class="reference external" href="http://numpy.org">scipy</a>,
+<a class="reference external" href="http://www.numpy.org">numpy</a>,
+<a class="reference external" href="http://www.scipy.org">scipy</a>,
 <a class="reference external" href="http://matplotlib.org">matplotlib</a></p>
 <p>To do anything involving geolocation, you will also need <a class="reference external" href="http://gdal.org">GDAL</a>.</p>
 <div class="toctree-wrapper compound">
@@ -156,6 +161,21 @@
 </ul>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>If you do not have a current (2.7 or 3+) python installation, you will need one to begin. I recommend <a class="reference external" href="https://anaconda.org/">anaconda</a>, though for users of homebrew a current homebrew python may be more convenient. Anaconda comes with the scientific python stack, but with homebrew you will need to <cite>brew install numpy scipy; pip install matplotlib</cite>.</p>
+<p>If you choose to use anaconda, you can install GDAL with <cite>conda install -c conda-forge gdal</cite>. If you are using homewbrew, <cite>brew install gdal</cite> should do the trick. GDAL is technically optional, but is needed for the majority of use cases.</p>
+<p>Finally, you are ready to install impdar. For now, use</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/dlilien/ImpDAR.git
+<span class="nb">cd</span> impdar
+python setup.py install
+</pre></div>
+</div>
+<p>This requires <a class="reference external" href="https://git-scm.com/downloads">git</a>. Soon I&#8217;ll have the project on PyPi and you will be able to do</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install impdar
+</pre></div>
 </div>
 </div>
 </div>
