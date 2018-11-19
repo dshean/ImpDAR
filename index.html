@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -22,27 +24,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ImpDAR 0.1a1 documentation" href="#"/>
-        <link rel="next" title="Libraries" href="lib/index.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Libraries" href="lib/index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -83,7 +78,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lib/index.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bin/index.html">Executables</a></li>
@@ -98,41 +96,61 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">ImpDAR</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">ImpDAR</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Welcome to ImpDAR&#8217;s documentation!</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to ImpDAR’s documentation!</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-impdar-s-documentation">
-<h1>Welcome to ImpDAR&#8217;s documentation!<a class="headerlink" href="#welcome-to-impdar-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to ImpDAR’s documentation!<a class="headerlink" href="#welcome-to-impdar-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>ImpDAR is a radar processor based on the St Olaf Deep radar processor. It allows for filtering, plotting, distance- and depth-correcting on a variety of file formats.  It does not yet have the full functionality of the original, but the most common steps are incorporated.</p>
 <div class="section" id="impdar-vs-stodeep">
 <h2>ImpDAR vs StODeep<a class="headerlink" href="#impdar-vs-stodeep" title="Permalink to this headline">¶</a></h2>
@@ -167,16 +185,17 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>If you do not have a current (2.7 or 3+) python installation, you will need one to begin. I recommend <a class="reference external" href="https://anaconda.org/">anaconda</a>, though for users of homebrew a current homebrew python may be more convenient. Anaconda comes with the scientific python stack, but with homebrew you will need to <cite>brew install numpy scipy; pip install matplotlib</cite>.</p>
 <p>If you choose to use anaconda, you can install GDAL with <cite>conda install -c conda-forge gdal</cite>. If you are using homewbrew, <cite>brew install gdal</cite> should do the trick. GDAL is technically optional, but is needed for the majority of use cases.</p>
-<p>Finally, you are ready to install impdar. For now, use</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/dlilien/ImpDAR.git
+<p>Finally, you are ready to install impdar. You can get a version with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install impdar
+</pre></div>
+</div>
+<p>The only downside here is that I need to remember to update version tags in order to update on PyPi, and I may not remember that often. To be sure that you have the newest version, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dlilien/ImpDAR.git
 <span class="nb">cd</span> impdar
 python setup.py install
 </pre></div>
 </div>
-<p>This requires <a class="reference external" href="https://git-scm.com/downloads">git</a>. Soon I&#8217;ll have the project on PyPi and you will be able to do</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install impdar
-</pre></div>
-</div>
+<p>This requires <a class="reference external" href="https://git-scm.com/downloads">git</a>.</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -190,12 +209,13 @@ python setup.py install
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lib/index.html" class="btn btn-neutral float-right" title="Libraries" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lib/index.html" class="btn btn-neutral float-right" title="Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -205,11 +225,11 @@ python setup.py install
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, David Lilien.
+        &copy; Copyright 2018, David Lilien
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -224,34 +244,23 @@ python setup.py install
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1a1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

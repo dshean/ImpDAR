@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -22,29 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ImpDAR 0.1a1 documentation" href="../index.html"/>
-        <link rel="up" title="Libraries" href="index.html"/>
-        <link rel="next" title="load" href="load.html"/>
-        <link rel="prev" title="Libraries" href="index.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="load" href="load.html" />
+    <link rel="prev" title="Libraries" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -85,7 +79,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Libraries</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RadarData</a></li>
@@ -106,36 +103,56 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">ImpDAR</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ImpDAR</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Libraries</a> &raquo;</li>
-      
-    <li>RadarData</li>
+        
+      <li>RadarData</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/lib/RadarData.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -143,30 +160,38 @@
             
   <div class="section" id="module-impdar.lib.RadarData">
 <span id="radardata"></span><h1>RadarData<a class="headerlink" href="#module-impdar.lib.RadarData" title="Permalink to this headline">¶</a></h1>
-<p>Define a class that just has the necessary attributes for a StODeep file&#8211;this should be subclassed per filetype</p>
+<p>Define a class that just has the necessary attributes for a StODeep file–this should be subclassed per filetype</p>
 <dl class="class">
 <dt id="impdar.lib.RadarData.RadarData">
 <em class="property">class </em><code class="descclassname">impdar.lib.RadarData.</code><code class="descname">RadarData</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class that holds the relevant information for a radar profile.</p>
-<p>We keep track of processing steps with the flags attribute. This thing gets subclassed per input filetype to override the init method, do any necessary initial processing, etc. This version&#8217;s __init__ takes a filename of a .mat file in the old StODeep format to load.</p>
+<p>We keep track of processing steps with the flags attribute. This thing gets subclassed per input filetype to override the init method, do any necessary initial processing, etc. This version’s __init__ takes a filename of a .mat file in the old StODeep format to load.</p>
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarData.data">
 <code class="descname">data</code><a class="headerlink" href="#impdar.lib.RadarData.RadarData.data" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; The data matrix.</p>
+<dd><p>The data matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="impdar.lib.RadarData.RadarData.agc">
 <code class="descname">agc</code><span class="sig-paren">(</span><em>window=50</em>, <em>scaling_factor=50</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.agc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Try to do some automatic gain control</p>
-<p>This is from StoDeep&#8211;I&#8217;m not sure it is useful but it was easy to roll over so I&#8217;m going to keep it. I think you should have most of this gone with a bandpass, but whatever.</p>
+<p>This is from StoDeep–I’m not sure it is useful but it was easy to roll over so I’m going to keep it. I think you should have most of this gone with a bandpass, but whatever.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>window</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; The size of window we use in number of samples (default 50)</li>
-<li><strong>scaling_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; The scaling factor. This gets divided by the max amplitude when we rescale the input. Default 50.</li>
+<li><strong>window</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – The size of window we use in number of samples (default 50)</li>
+<li><strong>scaling_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>optional</em>) – The scaling factor. This gets divided by the max amplitude when we rescale the input. Default 50.</li>
 </ul>
 </td>
 </tr>
@@ -178,14 +203,14 @@
 <dt id="impdar.lib.RadarData.RadarData.constant_space">
 <code class="descname">constant_space</code><span class="sig-paren">(</span><em>spacing</em>, <em>min_movement=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.constant_space" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restack the radar data to a constant spacing.</p>
-<p>This comprises the second half of what was done by StoDeep&#8217;s interpdeep. If you have good GPS data, you would first want to call <cite>impdar.lib.gpslib.kinematic_gps_control</cite> so that the GPS-related variables are all improved, then you would want to call this method. <cite>impdar.lib.gpslib</cite> provides some wrappings for doing both steps and for loading in the external GPS data</p>
+<p>This comprises the second half of what was done by StoDeep’s interpdeep. If you have good GPS data, you would first want to call <cite>impdar.lib.gpslib.kinematic_gps_control</cite> so that the GPS-related variables are all improved, then you would want to call this method. <cite>impdar.lib.gpslib</cite> provides some wrappings for doing both steps and for loading in the external GPS data</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>spacing</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Target trace spacing, in meters</li>
-<li><strong>min_movement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Minimum trace spacing. If there is not this much separation, toss the next shot. Set high to keep everything. Default 1.0e-2.</li>
+<li><strong>spacing</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Target trace spacing, in meters</li>
+<li><strong>min_movement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – Minimum trace spacing. If there is not this much separation, toss the next shot. Set high to keep everything. Default 1.0e-2.</li>
 </ul>
 </td>
 </tr>
@@ -203,10 +228,10 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> (</em><em>int if dimension=='snum'</em><em>)</em><em></em>) &#8211; The value at which to crop.</li>
-<li><strong>top_or_bottom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Crop off the top (lim is the first remaining return) or the bottom (lim is the last remaining return).</li>
-<li><strong>dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Evaluate in terms of sample (snum), travel time (twtt), or depth (depth). If depth, uses nmo_depth if present and use uice with no transmit/receive separation.</li>
-<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in ice. Used if nmo_depth is None and dimension==&#8217;depth&#8217;</li>
+<li><strong>lim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em> (</em><em>int if dimension=='snum'</em><em>)</em>) – The value at which to crop.</li>
+<li><strong>top_or_bottom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – Crop off the top (lim is the first remaining return) or the bottom (lim is the last remaining return).</li>
+<li><strong>dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – Evaluate in terms of sample (snum), travel time (twtt), or depth (depth). If depth, uses nmo_depth if present and use uice with no transmit/receive separation.</li>
+<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – Speed of light in ice. Used if nmo_depth is None and dimension==’depth’</li>
 </ul>
 </td>
 </tr>
@@ -224,8 +249,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ftype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; The filter type. Options are &#8216;hfilt&#8217; and &#8216;adaptive&#8217;. Default hfilt</li>
-<li><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em>, </em><em>optional</em>) &#8211; Bounds for the hfilt. Default is None, but required for hfilt.</li>
+<li><strong>ftype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>, </em><em>optional</em>) – The filter type. Options are ‘hfilt’ and ‘adaptive’. Default hfilt</li>
+<li><strong>bounds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a><em>, </em><em>optional</em>) – Bounds for the hfilt. Default is None, but required for hfilt.</li>
 </ul>
 </td>
 </tr>
@@ -243,9 +268,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ant_sep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Antenna separation in meters.</li>
-<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in ice, in m/s. (different from StoDeep!!). Default 1.69e8</li>
-<li><strong>uar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Speed of light in air. Default 3.0e8</li>
+<li><strong>ant_sep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Antenna separation in meters.</li>
+<li><strong>uice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – Speed of light in ice, in m/s. (different from StoDeep!!). Default 1.69e8</li>
+<li><strong>uar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>optional</em>) – Speed of light in air. Default 3.0e8</li>
 </ul>
 </td>
 </tr>
@@ -261,7 +286,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slope</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; The slope of the linear range gain to be applied. Maybe try 1.0e-2?</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slope</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – The slope of the linear range gain to be applied. Maybe try 1.0e-2?</td>
 </tr>
 </tbody>
 </table>
@@ -271,12 +296,12 @@
 <dt id="impdar.lib.RadarData.RadarData.restack">
 <code class="descname">restack</code><span class="sig-paren">(</span><em>traces</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarData.restack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restack all relevant data to the given number of traces.</p>
-<p>There are fancier ways to do this&#8211;if you can, you probably want to restack to constant trace spacing instead</p>
+<p>There are fancier ways to do this–if you can, you probably want to restack to constant trace spacing instead</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>traces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) &#8211; The (odd) number of traces to stack</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>traces</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The (odd) number of traces to stack</td>
 </tr>
 </tbody>
 </table>
@@ -297,7 +322,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) &#8211; Filename. Should have a .mat extension</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fn</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Filename. Should have a .mat extension</td>
 </tr>
 </tbody>
 </table>
@@ -312,8 +337,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>low</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Lowest frequency passed, in MHz</li>
-<li><strong>high</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) &#8211; Highest frequency passed, in MHz</li>
+<li><strong>low</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Lowest frequency passed, in MHz</li>
+<li><strong>high</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Highest frequency passed, in MHz</li>
 </ul>
 </td>
 </tr>
@@ -331,61 +356,125 @@
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.batch">
 <code class="descname">batch</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.batch" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Legacy indication of whether we are batch processing. Always False.</p>
+<dd><p>Legacy indication of whether we are batch processing. Always False.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.agc">
 <code class="descname">agc</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.agc" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Automatic gain control has been applied.</p>
+<dd><p>Automatic gain control has been applied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.reverse">
 <code class="descname">reverse</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.reverse" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Data have been reversed.</p>
+<dd><p>Data have been reversed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.restack">
 <code class="descname">restack</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.restack" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Data have been restacked.</p>
+<dd><p>Data have been restacked.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.rgain">
 <code class="descname">rgain</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.rgain" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Data have a linear range gain applied.</p>
+<dd><p>Data have a linear range gain applied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.bpass">
 <code class="descname">bpass</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.bpass" title="Permalink to this definition">¶</a></dt>
-<dd><p>3x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if bandpassed; (2) Low; and (3) High (MHz) bounds</p>
+<dd><p>Elements: (1) 1 if bandpassed; (2) Low; and (3) High (MHz) bounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">3x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.hfilt">
 <code class="descname">hfilt</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.hfilt" title="Permalink to this definition">¶</a></dt>
-<dd><p>2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if horizontally filtered; (2) Filter type</p>
+<dd><p>Elements: (1) 1 if horizontally filtered; (2) Filter type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="impdar.lib.RadarData.RadarFlags.interp">
 <code class="descname">interp</code><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.interp" title="Permalink to this definition">¶</a></dt>
-<dd><p>2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.14)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> &#8211; Elements: (1) 1 if constant distance spacing applied (2) The constant spacing (m)</p>
+<dd><p>Elements: (1) 1 if constant distance spacing applied (2) The constant spacing (m)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">2x1 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="impdar.lib.RadarData.RadarFlags.from_matlab">
 <code class="descname">from_matlab</code><span class="sig-paren">(</span><em>matlab_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.from_matlab" title="Permalink to this definition">¶</a></dt>
-<dd><p>Associate all values from an incoming .mat file (i.e. a dictionary from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal"><span class="pre">scipy.io.loadmat()</span></code></a>) with appropriate attributes</p>
+<dd><p>Associate all values from an incoming .mat file (i.e. a dictionary from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.io.loadmat()</span></code></a>) with appropriate attributes</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="impdar.lib.RadarData.RadarFlags.to_matlab">
 <code class="descname">to_matlab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#impdar.lib.RadarData.RadarFlags.to_matlab" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert all associated attributes into a dictionary formatted for use with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.savemat.html#scipy.io.savemat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal"><span class="pre">scipy.io.savemat()</span></code></a></p>
+<dd><p>Convert all associated attributes into a dictionary formatted for use with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.savemat.html#scipy.io.savemat" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.io.savemat()</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -394,15 +483,16 @@
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="load.html" class="btn btn-neutral float-right" title="load" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="load.html" class="btn btn-neutral float-right" title="load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Libraries" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -411,11 +501,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, David Lilien.
+        &copy; Copyright 2018, David Lilien
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -430,34 +520,23 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.1a1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -22,28 +24,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ImpDAR 0.1a1 documentation" href="../index.html"/>
-        <link rel="up" title="Executables" href="index.html"/>
-        <link rel="prev" title="impdar" href="impdar.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="impdar" href="impdar.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +78,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../lib/index.html">Libraries</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Executables</a><ul class="current">
@@ -110,36 +107,56 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">ImpDAR</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ImpDAR</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Executables</a> &raquo;</li>
-      
-    <li>impproc</li>
+        
+      <li>impproc</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/bin/impproc.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -152,7 +169,7 @@
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>A sample workflow might be something like</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># make directories for the output</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># make directories for the output</span>
 mkdir bandpass hfilt nmo
 
 <span class="c1"># Vertical bandpass from 150-450MHz (loading in the raw data with the -gssi flag)</span>
@@ -166,7 +183,7 @@ impproc nmo <span class="m">10</span> hfilt/*.mat -o nmo
 </pre></div>
 </div>
 <p>The same processing steps can be done without separating the output into different folders. At risk of file clutter, the workflow could be</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Vertical bandpass from 150-450MHz (loading in the raw data with the -gssi flag)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vertical bandpass from 150-450MHz (loading in the raw data with the -gssi flag)</span>
 impproc vbp <span class="m">150</span> <span class="m">450</span> -gssi *.DZT
 
 <span class="c1"># do some horizontal filtering on that output</span>
@@ -181,8 +198,9 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span>
-                  <span class="p">{</span><span class="n">hfilt</span><span class="p">,</span><span class="n">ahfilt</span><span class="p">,</span><span class="n">rev</span><span class="p">,</span><span class="n">cat</span><span class="p">,</span><span class="n">restack</span><span class="p">,</span><span class="n">rgain</span><span class="p">,</span><span class="n">agc</span><span class="p">,</span><span class="n">vbp</span><span class="p">,</span><span class="n">crop</span><span class="p">,</span><span class="n">nmo</span><span class="p">,</span><span class="n">interp</span><span class="p">}</span>
+<p><a class="reference external" href="#hfilt">hfilt</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span>
+                  <span class="p">{</span><span class="n">hfilt</span><span class="p">,</span><span class="n">ahfilt</span><span class="p">,</span><span class="n">rev</span><span class="p">,</span><span class="n">cat</span><span class="p">,</span><span class="n">elev</span><span class="p">,</span><span class="n">restack</span><span class="p">,</span><span class="n">rgain</span><span class="p">,</span><span class="n">agc</span><span class="p">,</span><span class="n">vbp</span><span class="p">,</span><span class="n">crop</span><span class="p">,</span><span class="n">nmo</span><span class="p">,</span><span class="n">interp</span><span class="p">}</span>
                   <span class="o">...</span>
 </pre></div>
 </div>
@@ -191,7 +209,7 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="hfilt">
 <h4>hfilt<a class="headerlink" href="#hfilt" title="Permalink to this headline">¶</a></h4>
 <p>Horizontally filter the data by subtracting the average trace from a window</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">hfilt</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">start_trace</span> <span class="n">end_trace</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">hfilt</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">start_trace</span> <span class="n">end_trace</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments">
@@ -238,7 +256,7 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="ahfilt">
 <h4>ahfilt<a class="headerlink" href="#ahfilt" title="Permalink to this headline">¶</a></h4>
 <p>Horizontally filter the data adaptively</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">ahfilt</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">ahfilt</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat1">
@@ -279,7 +297,7 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="rev">
 <h4>rev<a class="headerlink" href="#rev" title="Permalink to this headline">¶</a></h4>
 <p>Reverse the data</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">rev</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">rev</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat2">
@@ -320,7 +338,7 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="cat">
 <h4>cat<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h4>
 <p>Concatenate the data</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">cat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">cat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat3">
@@ -358,10 +376,10 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </table>
 </div>
 </div>
-<div class="section" id="restack">
-<h4>restack<a class="headerlink" href="#restack" title="Permalink to this headline">¶</a></h4>
-<p>Restack to interval</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">restack</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">traces</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="section" id="elev">
+<h4>elev<a class="headerlink" href="#elev" title="Permalink to this headline">¶</a></h4>
+<p>Elevation correct</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">elev</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat4">
@@ -370,9 +388,6 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
-<tr><td class="option-group">
-<kbd>traces</kbd></td>
-<td>Number of traces to stack. Must be an odd number</td></tr>
 <tr><td class="option-group">
 <kbd>fns</kbd></td>
 <td>The files to process</td></tr>
@@ -402,14 +417,58 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </table>
 </div>
 </div>
-<div class="section" id="rgain">
-<h4>rgain<a class="headerlink" href="#rgain" title="Permalink to this headline">¶</a></h4>
-<p>Add a range gain</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">rgain</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">slope</span> <span class="n">SLOPE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="section" id="restack">
+<h4>restack<a class="headerlink" href="#restack" title="Permalink to this headline">¶</a></h4>
+<p>Restack to interval</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">restack</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">traces</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat5">
 <h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat5" title="Permalink to this headline">¶</a></h5>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>traces</kbd></td>
+<td>Number of traces to stack. Must be an odd number</td></tr>
+<tr><td class="option-group">
+<kbd>fns</kbd></td>
+<td>The files to process</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="Named Arguments_repeat5">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat5" title="Permalink to this headline">¶</a></h5>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>-o</kbd></td>
+<td>Output to this file (or folder if multiple inputs)</td></tr>
+<tr><td class="option-group">
+<kbd>-pe</kbd></td>
+<td><p class="first">Inputs are pulse ekko files</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>-gssi</kbd></td>
+<td><p class="first">Inputs are gssi files</p>
+<p class="last">Default: False</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="rgain">
+<h4>rgain<a class="headerlink" href="#rgain" title="Permalink to this headline">¶</a></h4>
+<p>Add a range gain</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">rgain</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">slope</span> <span class="n">SLOPE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments_repeat6">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat6" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -420,8 +479,8 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </tbody>
 </table>
 </div>
-<div class="section" id="Named Arguments_repeat5">
-<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat5" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Named Arguments_repeat6">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat6" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -451,11 +510,11 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="agc">
 <h4>agc<a class="headerlink" href="#agc" title="Permalink to this headline">¶</a></h4>
 <p>Add an automatic gain</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">agc</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">window</span> <span class="n">WINDOW</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">agc</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">window</span> <span class="n">WINDOW</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="section" id="Positional Arguments_repeat6">
-<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat6" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Positional Arguments_repeat7">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat7" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -466,8 +525,8 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </tbody>
 </table>
 </div>
-<div class="section" id="Named Arguments_repeat6">
-<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat6" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Named Arguments_repeat7">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat7" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -497,11 +556,11 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="vbp">
 <h4>vbp<a class="headerlink" href="#vbp" title="Permalink to this headline">¶</a></h4>
 <p>Vertically bandpass the data</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">vbp</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">low_MHz</span> <span class="n">high_MHz</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">vbp</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span> <span class="n">low_MHz</span> <span class="n">high_MHz</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="section" id="Positional Arguments_repeat7">
-<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat7" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Positional Arguments_repeat8">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat8" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -512,61 +571,6 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <tr><td class="option-group">
 <kbd>high_MHz</kbd></td>
 <td>Highest frequency passed (in MHz)</td></tr>
-<tr><td class="option-group">
-<kbd>fns</kbd></td>
-<td>The files to process</td></tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="Named Arguments_repeat7">
-<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat7" title="Permalink to this headline">¶</a></h5>
-<table class="docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd>-o</kbd></td>
-<td>Output to this file (or folder if multiple inputs)</td></tr>
-<tr><td class="option-group">
-<kbd>-pe</kbd></td>
-<td><p class="first">Inputs are pulse ekko files</p>
-<p class="last">Default: False</p>
-</td></tr>
-<tr><td class="option-group">
-<kbd>-gssi</kbd></td>
-<td><p class="first">Inputs are gssi files</p>
-<p class="last">Default: False</p>
-</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="crop">
-<h4>crop<a class="headerlink" href="#crop" title="Permalink to this headline">¶</a></h4>
-<p>Crop the data in the vertical</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">crop</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span>
-                <span class="p">{</span><span class="n">top</span><span class="p">,</span><span class="n">bottom</span><span class="p">}</span> <span class="p">{</span><span class="n">snum</span><span class="p">,</span><span class="n">twtt</span><span class="p">,</span><span class="n">depth</span><span class="p">}</span> <span class="n">lim</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="section" id="Positional Arguments_repeat8">
-<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat8" title="Permalink to this headline">¶</a></h5>
-<table class="docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd>top_or_bottom</kbd></td>
-<td><p class="first">Possible choices: top, bottom</p>
-<p class="last">Remove from the top or bottom</p>
-</td></tr>
-<tr><td class="option-group">
-<kbd>dimension</kbd></td>
-<td><p class="first">Possible choices: snum, twtt, depth</p>
-<p class="last">Set the bound in terms of snum (sample number), twtt (two way travel time in microseconds), or depth (m, calculated using the nmo_depth or a light speed of 1.69e8m/s if it doesn&#8217;t</p>
-</td></tr>
-<tr><td class="option-group">
-<kbd>lim</kbd></td>
-<td>The cutoff value</td></tr>
 <tr><td class="option-group">
 <kbd>fns</kbd></td>
 <td>The files to process</td></tr>
@@ -596,11 +600,11 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </table>
 </div>
 </div>
-<div class="section" id="nmo">
-<h4>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h4>
-<p>Normal move-out correction</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">nmo</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">uice</span> <span class="n">UICE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">uair</span> <span class="n">UAIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span>
-               <span class="n">ant_sep</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+<div class="section" id="crop">
+<h4>crop<a class="headerlink" href="#crop" title="Permalink to this headline">¶</a></h4>
+<p>Crop the data in the vertical</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">crop</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span>
+                <span class="p">{</span><span class="n">top</span><span class="p">,</span><span class="n">bottom</span><span class="p">}</span> <span class="p">{</span><span class="n">snum</span><span class="p">,</span><span class="n">twtt</span><span class="p">,</span><span class="n">depth</span><span class="p">}</span> <span class="n">lim</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Positional Arguments_repeat9">
@@ -610,8 +614,18 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
-<kbd>ant_sep</kbd></td>
-<td>Antenna separation</td></tr>
+<kbd>top_or_bottom</kbd></td>
+<td><p class="first">Possible choices: top, bottom</p>
+<p class="last">Remove from the top or bottom</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>dimension</kbd></td>
+<td><p class="first">Possible choices: snum, twtt, depth</p>
+<p class="last">Set the bound in terms of snum (sample number), twtt (two way travel time in microseconds), or depth (m, calculated using the nmo_depth or a light speed of 1.69e8m/s if it doesn’t</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>lim</kbd></td>
+<td>The cutoff value</td></tr>
 <tr><td class="option-group">
 <kbd>fns</kbd></td>
 <td>The files to process</td></tr>
@@ -625,12 +639,57 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
-<kbd>&#8211;uice</kbd></td>
+<kbd>-o</kbd></td>
+<td>Output to this file (or folder if multiple inputs)</td></tr>
+<tr><td class="option-group">
+<kbd>-pe</kbd></td>
+<td><p class="first">Inputs are pulse ekko files</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>-gssi</kbd></td>
+<td><p class="first">Inputs are gssi files</p>
+<p class="last">Default: False</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="nmo">
+<h4>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h4>
+<p>Normal move-out correction</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">nmo</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">uice</span> <span class="n">UICE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">uair</span> <span class="n">UAIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span>
+               <span class="n">ant_sep</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments_repeat10">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat10" title="Permalink to this headline">¶</a></h5>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>ant_sep</kbd></td>
+<td>Antenna separation</td></tr>
+<tr><td class="option-group">
+<kbd>fns</kbd></td>
+<td>The files to process</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="Named Arguments_repeat10">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat10" title="Permalink to this headline">¶</a></h5>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>--uice</kbd></td>
 <td><p class="first">Speed of light in ice in m/s (default 1.69e8)</p>
 <p class="last">Default: 169000000.0</p>
 </td></tr>
 <tr><td class="option-group">
-<kbd>&#8211;uair</kbd></td>
+<kbd>--uair</kbd></td>
 <td><p class="first">Speed of light in air in m/s (default 3.0e8)</p>
 <p class="last">Default: 300000000.0</p>
 </td></tr>
@@ -654,13 +713,13 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 <div class="section" id="interp">
 <h4>interp<a class="headerlink" href="#interp" title="Permalink to this headline">¶</a></h4>
 <p>Reinterpolate GPS</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">interp</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">offset</span> <span class="n">OFFSET</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">minmove</span> <span class="n">MINMOVE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impproc</span><span class="o">.</span><span class="n">py</span> <span class="n">interp</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">offset</span> <span class="n">OFFSET</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">minmove</span> <span class="n">MINMOVE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">O</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">pe</span><span class="p">]</span>
                   <span class="p">[</span><span class="o">-</span><span class="n">gssi</span><span class="p">]</span>
                   <span class="n">spacing</span> <span class="n">gps_fn</span> <span class="n">fns</span> <span class="p">[</span><span class="n">fns</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="section" id="Positional Arguments_repeat10">
-<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat10" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Positional Arguments_repeat11">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat11" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
@@ -677,19 +736,19 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 </tbody>
 </table>
 </div>
-<div class="section" id="Named Arguments_repeat10">
-<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat10" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="Named Arguments_repeat11">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat11" title="Permalink to this headline">¶</a></h5>
 <table class="docutils option-list" frame="void" rules="none">
 <col class="option" />
 <col class="description" />
 <tbody valign="top">
 <tr><td class="option-group">
-<kbd>&#8211;offset</kbd></td>
+<kbd>--offset</kbd></td>
 <td><p class="first">Offset from GPS time to radar time</p>
 <p class="last">Default: 0.0</p>
 </td></tr>
 <tr><td class="option-group">
-<kbd>&#8211;minmove</kbd></td>
+<kbd>--minmove</kbd></td>
 <td><p class="first">Minimum movement to not be stationary</p>
 <p class="last">Default: 0.01</p>
 </td></tr>
@@ -716,13 +775,14 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="impdar.html" class="btn btn-neutral" title="impdar" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="impdar.html" class="btn btn-neutral" title="impdar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -731,11 +791,11 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, David Lilien.
+        &copy; Copyright 2018, David Lilien
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -750,34 +810,23 @@ impproc nmo <span class="m">10</span> *_hfilt.mat
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.1a1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
